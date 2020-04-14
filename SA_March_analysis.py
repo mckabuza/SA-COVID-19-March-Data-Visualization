@@ -47,21 +47,15 @@ plt.grid(axis='y')
 #plt.savefig("Infections.jpg")
 plt.savefig('daily.jpg')
 
-
-
-
 weekly = [1,37,202,1113]
 weeks = ['Week 1','Week 2','Week 3','Week 4']
-#
 
 plt.title('Number of confirmed positive cases\nfor each week in March as at March 30 Noon')
 plt.bar(weeks,weekly,width=0.45,color='teal')
 plt.ylabel('Number of positive COVID-19 cases')
-
 for i,weekly in enumerate(weekly):
     plt.text(i, weekly+10, weekly, horizontalalignment='center')
-
-plt.savefig()
+plt.savefig('weekly_stats.jpg')
 '''
 #PROVINCIAL ANALYSIS
 '''
@@ -84,10 +78,10 @@ plt.xticks(rotation=55)
 plt.savefig('provincial_plot.jpg')
 
 prov = ['Free\nState','Mpumalanga','Western\nCape','Eastern\nCape','Kwa-Zulu\nNatal','North\nWest','Gauteng',
-        'Northern\nCape','Province\nUnknown','Limpopo',]
-prov_inf = [provincial['Positive Cases'][0],provincial['Positive Cases'][8], provincial['Positive Cases'][3],
-            provincial['Positive Cases'][1], provincial['Positive Cases'][5], provincial['Positive Cases'][6], provincial['Positive Cases'][4],
-            provincial['Positive Cases'][2], provincial['Positive Cases'][9], provincial['Positive Cases'][7]]
+        'Northern\nCape','Province\nUnknown','Limpopo']
+prov_inf = [province_infections[0],province_infections[8], province_infections[3],
+            province_infections[1], province_infections[5], province_infections[6], province_infections[4],
+            province_infections[2], province_infections[9], province_infections[7]]
 
 
 plt.pie(prov_inf, labels=prov, autopct='%1.2f%%')
@@ -95,7 +89,7 @@ plt.savefig('provincial_pie.jpg')
 
 
 data1 = ['Total\ncases','Recoveries','Patients\nin ICU', 'Patients on\nventilators','Deaths']
-dat1=[sum(provincial['Positive Cases']),31,4,3,5]
+dat1=[1353,31,4,3,5]
 
 plt.title('Key Statistics (March 30)')
 plt.barh(data1, dat1,color='teal')
@@ -103,9 +97,3 @@ for k,dat1 in enumerate(dat1):
     plt.text(dat1+2,k,dat1,verticalalignment='center')
 
 plt.savefig('key_stats.jpg')
-'''
-
-
-
-
-
